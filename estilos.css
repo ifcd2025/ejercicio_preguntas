@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    font-weight: normal;
+    box-sizing: border-box;
+}
+body {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+header {
+    background-color: rgb(2, 36, 99);
+    color: white;
+    h1 {
+        font-size: calc(1.2rem  + 3vw);
+        text-align: center;
+        text-transform: uppercase;
+    }
+    > div {
+        font-size: 1.2rem;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+#preguntas {
+    margin: 2rem auto;
+    min-width: 40%;
+    padding: 2rem;
+    background-color: aliceblue;
+    box-shadow: 0 0 2px 2px rgb(187, 186, 186);
+    width: fit-content;
+    h2 {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    p {
+        margin: .8rem 0;
+        padding: .5rem;
+        background-color: rgb(245, 177, 152);
+        border-radius: 20px;
+        border: 2px solid #ee8946;
+     }
+     ps:hover {
+        animation: animacionRespuesta .5s infinite;
+     }
+}
+.acierto {
+    animation: animacionAcierto .3s 3;
+}
+.fallo {
+    animation: animacionFallo .3s 3;
+}
+
+#resultado {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(126, 125, 125, 0.7);
+    border-radius: 10px;
+    min-width: 30%;
+    padding: 1rem;
+    h2 {
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: bold;
+    }
+    p {
+        margin-top: .5rem;
+        font-size: 1.1rem;
+    }
+}
+@keyframes animacionRespuesta {
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes animacionAcierto {
+    25% {
+        transform: translateY(-10px);
+    }
+    50% {
+        background-color: rgb(105, 245, 105);
+    }
+    75% {
+        transform: translateY(10px);
+    }
+}
+
+@keyframes animacionRespuesta {
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes animacionFallo {
+    25% {
+        transform: translateX(-10px);
+    }
+    50% {
+        background-color: rgb(216, 77, 77);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}

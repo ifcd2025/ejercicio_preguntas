@@ -52,22 +52,38 @@ header {
 }
 
 #resultado {
+    display: none;
     position: absolute;
+
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(126, 125, 125, 0.7);
+    background-color: rgba(126, 125, 125, 0.9);
     border-radius: 10px;
-    min-width: 30%;
+    min-width: 60%;
+    min-height: 50%;
     padding: 1rem;
     h2 {
         font-size: 1.2rem;
         text-align: center;
         font-weight: bold;
+        color: white;
     }
     p {
         margin-top: .5rem;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+    }
+    input {
+        display: block;
+        margin: 1rem auto;
+        padding: .5rem 1rem;
+
+    }
+    #mensaje {
+        color: white;
+        text-align: center;
+        margin-top:2rem;
+        font-size: 2rem;
     }
 }
 @keyframes animacionRespuesta {

@@ -1,4 +1,4 @@
-let numeroPregunta = 44;
+let numeroPregunta = 0;
 let aciertos = 0;
 let fallos = 0;
 const numeroPreguntas = preguntas.length;
@@ -13,7 +13,7 @@ function mostrarPregunta() {
     // Quitamos las clases de animación que puedan tener las respuestas
     // Para no andar comprobando si tienen la clase acierto, fallo o ninguna,
     // las eliminamos todads que no pasa nada si no las tiene
-    document.querySelectorAll("#preguntas p").forEach( p => p.classList.remove("acierto", "fallo"));
+    document.querySelectorAll("#preguntas p").forEach( p => {p.classList.remove("acierto", "fallo"); p.offsetWidth;});
 }
 
 function comprobarRespuesta(evt) {
@@ -36,15 +36,17 @@ function comprobarRespuesta(evt) {
             numeroPregunta++;
             // ver si llegó a la última pregunta
             if(numeroPregunta < numeroPreguntas) {
-                mostrarFin();
-            } else {
                 mostrarPregunta();
+            } else {
+                mostrarFin();
             }
         })
     }
 }
 
+
 function mostrarFin() {
+    document.getElementById("resultado").style.display = "block";
     document.getElementById("resumenAciertos").textContent = aciertos;
     document.getElementById("resumenFallos").textContent = fallos;
     const porcentaje = (aciertos / numeroPreguntas * 100).toFixed(0);    
@@ -63,9 +65,21 @@ function mostrarFin() {
     } else {
         mensaje.value = "Posiblemente hayas hecho trampas"
     }
+    document.getElementById("preguntas").removeEventListener("click", comprobarRespuesta );
+}
 
+function cerrar() {
+    numeroPregunta = 0;
+    aciertos = 0;
+    fallos = 0;
+    document.getElementById("aciertos").textContent = "0";
+    document.getElementById("fallos").textContent = "0";
+    document.getElementById("resultado").style.display = "none";
+    document.getElementById("preguntas").addEventListener("click", comprobarRespuesta );
+    mostrarPregunta();
 }
 
 mostrarPregunta();
 
 document.getElementById("preguntas").addEventListener("click", comprobarRespuesta );
+document.getElementById("cerrar").addEventListener("click", cerrar);
